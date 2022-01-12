@@ -1,4 +1,14 @@
 /*portfolio style*/
+
+@keyframes slider-bg{
+    0% {background-color: transparent;
+
+    } 100% {
+        background-color: rgba(33, 150, 243, 0.9);
+    }
+}
+
+
 .portfolio-work-list{
     display: flex;
     flex-wrap: wrap;
@@ -37,15 +47,45 @@
 .portfolio-work-examples img{
     display: block;
 }
+
+
 .portfolio-work-examples{
     text-align: left;
     width: 370px;
     margin: 15px;
+    position: relative;
 }
 .portfolio-work-examples:hover, 
 .portfolio-work-examples:focus{
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+
+/*.portfolio-work-examples:hover::before, 
+.portfolio-work-examples:focus::before{
+    content: "";
+    position: absolute;
+    top: 294px;
+    background-color: rgba(33, 150, 243, 0.9);
+    height: 294px;
+    width: 370px;
+    color: white;
+    transition-timing-function: var(--time-graf);
+
+}*/
+.hover-img:hover::after{
+    content: "";
+    position: absolute;
+    top: 294px;
+    background-color: rgba(33, 150, 243, 0.9);
+    height: 294px;
+    width: 370px;
+    color: white;
+    transition-timing-function: var(--time-graf);
+    transform: translateY(-294px);
+    animation-duration: 2500ms;
+    animation-direction: reverse;
+}
+
 
 .portfolio-card-discription{
     border-right: 1px #EEEEEE solid;
@@ -73,4 +113,38 @@
     line-height: 1.87;
     color: var(--main-text-color);
     margin: 0;
+}
+
+.is-hiden-p{
+    position: absolute;
+    top: 0;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 370px;
+    height: 294px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 63px;
+    padding-bottom: 64px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: calc( 28 / 18 );
+    letter-spacing: 0.03em;
+    color: transparent;
+    top: 0;
+}
+.is-hiden-p:hover{
+    color: white;
+    transition-timing-function: var(--time-graf);
+}
+
+
+@keyframes slider-text{
+    0% {
+        color: transparent;
+    } 100% {
+        color: white;
+    }
 }
