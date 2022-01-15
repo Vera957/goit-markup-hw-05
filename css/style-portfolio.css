@@ -1,12 +1,13 @@
 /*portfolio style*/
 
-@keyframes slider-bg{
-    0% {background-color: transparent;
+ @keyframes slider {
+     0%{
+         top: 588px;
 
-    } 100% {
-        background-color: rgba(33, 150, 243, 0.9);
-    }
-}
+     }100%{
+         top: 294px;
+     }   
+ }
 
 
 .portfolio-work-list{
@@ -46,6 +47,9 @@
 }
 .portfolio-work-examples img{
     display: block;
+    width: 370px;
+    height: 294px;
+    overflow: hidden;
 }
 
 
@@ -60,32 +64,24 @@
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-/*.portfolio-work-examples:hover::before, 
-.portfolio-work-examples:focus::before{
-    content: "";
-    position: absolute;
-    top: 294px;
-    background-color: rgba(33, 150, 243, 0.9);
-    height: 294px;
+.out{
+    display: block;
     width: 370px;
-    color: white;
-    transition-timing-function: var(--time-graf);
-
-}*/
-.hover-img:hover::after{
-    content: "";
-    position: absolute;
-    top: 294px;
-    background-color: rgba(33, 150, 243, 0.9);
     height: 294px;
-    width: 370px;
-    color: white;
-    transition-timing-function: var(--time-graf);
-    transform: translateY(-294px);
-    animation-duration: 2500ms;
-    animation-direction: reverse;
+    position: relative;
+    overflow: hidden;
 }
 
+.portfolio-work-examples:hover .is-hiden-p, .portfolio-work-examples:focus .is-hiden-p{
+    position: absolute;
+    display: block;
+    content: "";
+    animation-name: slider;
+    transition-timing-function: var(--time-graf);
+    transform: translateY(-294px);
+    animation-duration: 250ms;
+    z-index: 3;
+}
 
 .portfolio-card-discription{
     border-right: 1px #EEEEEE solid;
@@ -117,34 +113,22 @@
 
 .is-hiden-p{
     position: absolute;
-    top: 0;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    top: 294;
+    display: block;
+
     width: 370px;
     height: 294px;
     padding-left: 24px;
     padding-right: 24px;
     padding-top: 63px;
     padding-bottom: 64px;
+
     font-family: Roboto;
     font-size: 18px;
     font-weight: 400;
     line-height: calc( 28 / 18 );
     letter-spacing: 0.03em;
-    color: transparent;
-    top: 0;
-}
-.is-hiden-p:hover{
     color: white;
-    transition-timing-function: var(--time-graf);
+    background-color: rgba(33, 150, 243, 0.9);
 }
 
-
-@keyframes slider-text{
-    0% {
-        color: transparent;
-    } 100% {
-        color: white;
-    }
-}
