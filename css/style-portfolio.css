@@ -9,6 +9,15 @@
      }   
  }
 
+ @keyframes back-slider {
+     0%{
+         top:294px;
+     }100%{
+         top:588px;
+     }
+     
+ }
+
 
 .portfolio-work-list{
     display: flex;
@@ -39,6 +48,8 @@
     border: none;
     cursor: pointer;
     padding: 6px 22px;
+    transition: color, background-color 250ms var(--time-graf);
+
 }
 .portfolio-btn:hover, 
 .portfolio-btn:focus{
@@ -58,21 +69,33 @@
     width: 370px;
     margin: 15px;
     position: relative;
+    transition: box-shadow 250ms var(--time-graf);
+    animation-name: back-slider;
+
 }
 .portfolio-work-examples:hover, 
 .portfolio-work-examples:focus{
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+
+
 .out{
-    display: block;
-    width: 370px;
-    height: 294px;
     position: relative;
     overflow: hidden;
+    width: 370px;
+    height: 294px;
 }
-
-.portfolio-work-examples:hover .is-hiden-p, .portfolio-work-examples:focus .is-hiden-p{
+.portfolio-work-examples .is-hiden-p{
+    position: absolute;
+    display: block;
+    animation-name: back-slider 250ms var(--time-graf);
+    transform: translateY(295px);
+    transition-timing-function: var(--time-graf);
+    animation-duration: 250ms;
+}
+.portfolio-work-examples:hover .is-hiden-p,
+.portfolio-work-examples:focus .is-hiden-p{
     position: absolute;
     display: block;
     content: "";
@@ -80,7 +103,7 @@
     transition-timing-function: var(--time-graf);
     transform: translateY(-294px);
     animation-duration: 250ms;
-    z-index: 3;
+
 }
 
 .portfolio-card-discription{
@@ -92,6 +115,7 @@
     padding-left: 24px;
     padding-right: 24px;
     border-top: none;
+ 
 }
 
 .portfolio-work-examples-name{
@@ -130,5 +154,6 @@
     letter-spacing: 0.03em;
     color: white;
     background-color: rgba(33, 150, 243, 0.9);
+    
 }
 

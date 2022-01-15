@@ -178,13 +178,11 @@ body {
 
 .nav-link {
   color: var(--second-text-color);
+  transition: color 250ms var(--time-graf);
 
 }
 .nav-link:hover,
 .nav-link:focus {
-  animation-name: color-change;
-  animation-timing-function: var(--time-graf);
-  animation-duration: 2s;
   color: var(--optional-color);
 }
 .nav .item + .item {
@@ -233,6 +231,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0;
+  transition: color 250ms var(--time-graf);
 }
 
 .logo-link {
@@ -311,6 +310,7 @@ body {
 
 .inverse-link {
   color: rgba(255, 255, 255, 0.6);
+  transition: color 250ms var(--time-graf);
 }
 
 .inverse-link:focus,
@@ -466,6 +466,9 @@ footer .container {
   align-items: center;
   justify-content: center;
   fill: #afb1b8;
+  transition: background-color 250ms var(--time-graf);
+  transition:  fill 250ms var(--time-graf);
+
 }
 
 .clients {
@@ -497,10 +500,17 @@ footer .container {
 .footer-rounded-list .rounded-icon {
   background-color: rgba(255, 255, 255, 0.1);
   fill: white;
+  transition: background-color 250ms var(--time-graf);
 }
 .footer-rounded-list .rounded-icon:hover,
 .footer-rounded-list .rounded-icon:focus {
   background-color: var(--optional-color);
+}
+.test svg{
+  transition: fill 250ms var(--time-graf);
+}
+.test{
+  transition: border 250ms var(--time-graf);
 }
 
 .test:hover svg,
@@ -519,22 +529,28 @@ footer .container {
   top: 0; left: 0; right: 0; bottom: 0;
   cursor: not-allowed;  
   background: rgba(0, 0, 0, 0.2);
+  display: flex;
 
 }
 
 .modal-window{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+  align-self: center;
+  margin-right: auto;
+  margin-left: auto;
+  transition: 250ms var(--time-graf);
   width: 528px;
   height: 581px;
+ 
 
   background-color: white;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  animation-name: modal-scale;
+  animation-duration: 250ms;
+  animation-timing-function: var(--time-graf);
 }
+
 
 .backdrop.is-hidden{
   opacity: 0;
@@ -569,4 +585,13 @@ footer .container {
   100%{
     color: var(--optional-color);
   }
+}
+
+@keyframes modal-scale {
+  0%{
+    transform: scale(0);
+  }100%{
+    transform: scale(1);
+  }
+  
 }
