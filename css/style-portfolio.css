@@ -1,26 +1,4 @@
-/**
- * /*portfolio style
- *
- * @format
- */
-
-@keyframes slider {
-  0% {
-    top: 588px;
-  }
-  100% {
-    top: 294px;
-  }
-}
-
-@keyframes back-slider {
-  0% {
-    top: 294px;
-  }
-  100% {
-    top: 588px;
-  }
-}
+/** @format */
 
 .portfolio-work-list {
   display: flex;
@@ -64,7 +42,6 @@
   display: block;
   width: 370px;
   height: 294px;
-  overflow: hidden;
 }
 
 .portfolio-work-examples {
@@ -81,29 +58,18 @@
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.portfolio-work-examples:focus .is-hiden-p,
+.portfolio-work-examples:hover .is-hiden-p {
+  transform: translateY(0);
+  transition: transform 250ms var(--time-graf);
+}
+
 .out {
   position: relative;
-  overflow: hidden;
   width: 370px;
   height: 294px;
-}
-.portfolio-work-examples .is-hiden-p {
-  position: absolute;
-  display: block;
-  animation-name: back-slider 250ms var(--time-graf);
-  transform: translateY(295px);
-  transition-timing-function: var(--time-graf);
-  animation-duration: 250ms;
-}
-.portfolio-work-examples:hover .is-hiden-p,
-.portfolio-work-examples:focus .is-hiden-p {
-  position: absolute;
-  display: block;
-  content: "";
-  animation-name: slider;
-  transition-timing-function: var(--time-graf);
-  transform: translateY(-294px);
-  animation-duration: 250ms;
+  transform: translateY(0);
+  overflow: hidden;
 }
 
 .portfolio-card-discription {
@@ -136,8 +102,10 @@
 
 .is-hiden-p {
   position: absolute;
-  top: 294;
+  top: 0;
   display: block;
+  transform: translateY(294px);
+  transition: transform 250ms var(--time-graf);
 
   width: 370px;
   height: 294px;
