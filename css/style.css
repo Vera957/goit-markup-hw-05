@@ -194,21 +194,6 @@ body {
   position: relative;
 }
 
-/*.nav .item::after{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: block;
-  content: "";
-  height: 4px;
-  background-color: transparent;
-  border-radius: 2px;
-}*/
-
-/*.nav .item:hover::after{
-  background-color: var(--optional-color);
-}*/
-
 .just-contacts .item + .item {
   margin-left: 50px;
 }
@@ -356,7 +341,6 @@ footer .container {
   display: flex;
 }
 .hero {
-  /*background-color: rgba(47, 48, 58, 0,4);*/
   background-image: url(../images/img-bg-optimized.jpg);
   background-image: linear-gradient(
       to right,
@@ -442,13 +426,6 @@ footer .container {
   background-color: var(--second-bg-color);
   margin-bottom: 30px;
 }
-
-.rounded-icon:hover,
-.rounded-icon:focus {
-  background-color: var(--optional-color);
-  fill: white;
-}
-
 .social-links {
   display: flex;
   justify-content: center;
@@ -457,7 +434,6 @@ footer .container {
 .social-links .rounded-icon:not(:last-child) {
   margin-right: 10px;
 }
-
 .rounded-icon {
   width: 44px;
   height: 44px;
@@ -466,9 +442,7 @@ footer .container {
   align-items: center;
   justify-content: center;
   fill: #afb1b8;
-  transition: background-color 250ms var(--time-graf);
-  transition:  fill 250ms var(--time-graf);
-
+  transition: background-color 250ms var(--time-graf), fill 250ms var(--time-graf);
 }
 
 .clients {
@@ -500,12 +474,14 @@ footer .container {
 .footer-rounded-list .rounded-icon {
   background-color: rgba(255, 255, 255, 0.1);
   fill: white;
-  transition: background-color 250ms var(--time-graf);
 }
-.footer-rounded-list .rounded-icon:hover,
-.footer-rounded-list .rounded-icon:focus {
+
+.rounded-icon:hover,
+.rounded-icon:focus {
   background-color: var(--optional-color);
+  fill: white;
 }
+
 .test svg{
   transition: fill 250ms var(--time-graf);
 }
@@ -529,32 +505,29 @@ footer .container {
   top: 0; left: 0; right: 0; bottom: 0;
   cursor: not-allowed;  
   background: rgba(0, 0, 0, 0.2);
-  display: flex;
+  transition: opacity 250ms var(--time-graf), visibility 250ms var(--time-graf);
 
 }
 
 .modal-window{
-  align-self: center;
-  margin-right: auto;
-  margin-left: auto;
-  transition: 250ms var(--time-graf);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   width: 528px;
-  height: 581px;
- 
+  height: 581px; 
 
   background-color: white;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-
-  animation-name: modal-scale;
-  animation-duration: 250ms;
-  animation-timing-function: var(--time-graf);
 }
 
 
 .backdrop.is-hidden{
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .x-in-circle-btn{
@@ -568,7 +541,6 @@ footer .container {
   margin-top: 8px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
-
 }
 
 .x-in-circle-btn svg{
@@ -577,21 +549,3 @@ footer .container {
 }
 
 /*animation*/
-
-@keyframes color-change {
-  0%{
-    color: inherit;
-  }
-  100%{
-    color: var(--optional-color);
-  }
-}
-
-@keyframes modal-scale {
-  0%{
-    transform: scale(0);
-  }100%{
-    transform: scale(1);
-  }
-  
-}
