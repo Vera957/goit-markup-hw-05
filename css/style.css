@@ -71,6 +71,7 @@ body {
 
 .no-lines-under-link {
   text-decoration: none;
+  transition: box-shadow 250ms var(--time-graf);
 }
 
 .no-dots-ul {
